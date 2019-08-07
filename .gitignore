@@ -1,0 +1,16 @@
+
+
+*.user
+build-*
+*.pro.user
+*.pro.user*
+bibliothequeVinyle/*.pro.user
+*moc_*
+*.o
+.DS_Store
+bibliothequeVinyle/*.o
+bibliothequeVinyle/Makefile
+qrc*
+ui_*
+*qmake.stash
+bibliothequeVinyle
