@@ -25,10 +25,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        dbmanager.cpp \
         main.cpp \
         mainwindow.cpp
 
 HEADERS += \
+        dbmanager.h \
         mainwindow.h
 
 FORMS += \

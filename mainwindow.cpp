@@ -1,8 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "dbvinyle.h"
 #include "QModelIndex"
 #include "QDebug"
+#include "dbmanager.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -10,23 +10,45 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    /*le driver de QSQLITE*/
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+//    /*le driver de QSQLITE*/
+//    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
 
-    /*donner le bon chemin de la database*/
-    db.setDatabaseName("/home/ninko/Projets/sqlite_database/mabiblio.db");
-    bool ok = db.open();
+//    /*donner le bon chemin de la database*/
+//    db.setDatabaseName("/home/ninko/Projets/sqlite_database/mabiblio.db");
+//    bool ok = db.open();
 
-    QSqlTableModel *model = new QSqlTableModel();
+//    Dbmanager *conn = new Dbmanager ();
+//    conn->connect();
 
-    model->setTable("vinyles");
-    model->select();
-    ui->tableView->setModel(model);
+//    QSqlTableModel *model = new QSqlTableModel();
+//    model->setTable("vinyle");
+//    model->select();
+//    ui->tableView->setModel(model);
+
+    connect(ui->buttonRead, SIGNAL(clicked()), this, SLOT(afficher()));
+
+    connect(ui->buttonQuit, SIGNAL(clicked()), this, SLOT(quitter()));
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::afficher()
+{
+    Dbmanager *conn = new Dbmanager ();
+    conn->connect();
+
+    QSqlTableModel *model = new QSqlTableModel();
+    model->setTable("vinyle");
+    model->select();
+    ui->tableView->setModel(model);
+}
+
+void MainWindow::quitter()
+{
+    close();
 }
 
 

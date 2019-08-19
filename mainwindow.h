@@ -19,7 +19,16 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    QSqlTableModel *model = new QSqlTableModel();
+
+
+
+private slots :
+//    void creer();
+    void afficher();
+//    void maj();
+//    void supprimer();
+    void quitter();
+
 };
 
 #endif // MAINWINDOW_H
