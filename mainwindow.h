@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QSqlTableModel>
 #include <QModelIndex>
+#include <dbmanager.h>
 
 namespace Ui {
 class MainWindow;

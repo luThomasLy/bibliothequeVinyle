@@ -2,7 +2,6 @@
 #include "ui_mainwindow.h"
 #include "QModelIndex"
 #include "QDebug"
-#include "dbmanager.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -34,6 +33,7 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
 
 void MainWindow::afficher()
 {

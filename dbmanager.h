@@ -8,9 +8,7 @@ class Dbmanager
 {    
 public:
     Dbmanager();
-
-public:
     void connect();
-};
 
+};
 #endif // DBMANAGER_H
