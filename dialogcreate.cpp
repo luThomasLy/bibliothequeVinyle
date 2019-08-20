@@ -7,7 +7,9 @@ Dialogcreate::Dialogcreate(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    connect(ui->buttonQuitCreate, SIGNAL(clicked()), this, SLOT(quittercreate()));
+    connect(ui->buttonQuitCreate, SIGNAL(clicked()), this, SLOT(quitcreate()));
+
+    connect(ui->buttonSaveCreate, SIGNAL(clicked()), this, SLOT(savecreate()));
 }
 
 Dialogcreate::~Dialogcreate()
@@ -15,7 +17,12 @@ Dialogcreate::~Dialogcreate()
     delete ui;
 }
 
-void Dialogcreate::quittercreate()
+void Dialogcreate::quitcreate()
 {
     close();
+}
+
+void Dialogcreate::savecreate()
+{
+
 }

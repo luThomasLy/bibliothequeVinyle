@@ -19,7 +19,8 @@ private:
     Ui::Dialogcreate *ui;
 
 private slots:
-    void quittercreate();
+    void quitcreate();
+    void savecreate();
 };
 
 #endif // DIALOGCREATE_H
