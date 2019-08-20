@@ -26,14 +26,17 @@ CONFIG += c++11
 
 SOURCES += \
         dbmanager.cpp \
+        dialogcreate.cpp \
         main.cpp \
         mainwindow.cpp
 
 HEADERS += \
         dbmanager.h \
+        dialogcreate.h \
         mainwindow.h
 
 FORMS += \
+        dialogcreate.ui \
         mainwindow.ui
 
 # Default rules for deployment.

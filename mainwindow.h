@@ -21,10 +21,8 @@ public:
 private:
     Ui::MainWindow *ui;
 
-
-
 private slots :
-//    void creer();
+    void creer();
     void afficher();
 //    void maj();
 //    void supprimer();
