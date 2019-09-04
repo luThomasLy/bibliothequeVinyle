@@ -946,6 +946,8 @@ moc_mainwindow.cpp: mainwindow.h \
 		../../Qt/5.12.3/gcc_64/include/QtCore/qabstractitemmodel.h \
 		../../Qt/5.12.3/gcc_64/include/QtCore/QModelIndex \
 		dbmanager.h \
+		../../Qt/5.12.3/gcc_64/include/QtSql/QSqlRelationalTableModel \
+		../../Qt/5.12.3/gcc_64/include/QtSql/qsqlrelationaltablemodel.h \
 		moc_predefs.h \
 		../../Qt/5.12.3/gcc_64/bin/moc
 	/home/ninko/Qt/5.12.3/gcc_64/bin/moc $(DEFINES) --include /home/ninko/git/bibliothequeVinyle/moc_predefs.h -I/home/ninko/Qt/5.12.3/gcc_64/mkspecs/linux-g++ -I/home/ninko/git/bibliothequeVinyle -I/home/ninko/Qt/5.12.3/gcc_64/include -I/home/ninko/Qt/5.12.3/gcc_64/include/QtWidgets -I/home/ninko/Qt/5.12.3/gcc_64/include/QtGui -I/home/ninko/Qt/5.12.3/gcc_64/include/QtSql -I/home/ninko/Qt/5.12.3/gcc_64/include/QtCore -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include mainwindow.h -o moc_mainwindow.cpp
@@ -1046,6 +1048,8 @@ dbmanager.o: dbmanager.cpp dbmanager.h \
 		../../Qt/5.12.3/gcc_64/include/QtCore/qcontiguouscache.h \
 		../../Qt/5.12.3/gcc_64/include/QtCore/qsharedpointer.h \
 		../../Qt/5.12.3/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../Qt/5.12.3/gcc_64/include/QtSql/QSqlRelationalTableModel \
+		../../Qt/5.12.3/gcc_64/include/QtSql/qsqlrelationaltablemodel.h \
 		../../Qt/5.12.3/gcc_64/include/QtCore/QModelIndex \
 		../../Qt/5.12.3/gcc_64/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dbmanager.o dbmanager.cpp
@@ -1154,15 +1158,7 @@ dialogcreate.o: dialogcreate.cpp dialogcreate.h \
 		../../Qt/5.12.3/gcc_64/include/QtCore/qfiledevice.h \
 		../../Qt/5.12.3/gcc_64/include/QtGui/qvector2d.h \
 		../../Qt/5.12.3/gcc_64/include/QtGui/qtouchdevice.h \
-		ui_dialogcreate.h \
-		../../Qt/5.12.3/gcc_64/include/QtCore/QVariant \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/QApplication \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/qapplication.h \
-		../../Qt/5.12.3/gcc_64/include/QtCore/qcoreapplication.h \
-		../../Qt/5.12.3/gcc_64/include/QtCore/qeventloop.h \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		../../Qt/5.12.3/gcc_64/include/QtGui/qguiapplication.h \
-		../../Qt/5.12.3/gcc_64/include/QtGui/qinputmethod.h
+		ui_dialogcreate.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dialogcreate.o dialogcreate.cpp
 
 main.o: main.cpp mainwindow.h \
@@ -1281,6 +1277,8 @@ main.o: main.cpp mainwindow.h \
 		../../Qt/5.12.3/gcc_64/include/QtCore/qabstractitemmodel.h \
 		../../Qt/5.12.3/gcc_64/include/QtCore/QModelIndex \
 		dbmanager.h \
+		../../Qt/5.12.3/gcc_64/include/QtSql/QSqlRelationalTableModel \
+		../../Qt/5.12.3/gcc_64/include/QtSql/qsqlrelationaltablemodel.h \
 		../../Qt/5.12.3/gcc_64/include/QtWidgets/QApplication \
 		../../Qt/5.12.3/gcc_64/include/QtWidgets/qapplication.h \
 		../../Qt/5.12.3/gcc_64/include/QtCore/qcoreapplication.h \
@@ -1406,26 +1404,15 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		../../Qt/5.12.3/gcc_64/include/QtCore/qabstractitemmodel.h \
 		../../Qt/5.12.3/gcc_64/include/QtCore/QModelIndex \
 		dbmanager.h \
+		../../Qt/5.12.3/gcc_64/include/QtSql/QSqlRelationalTableModel \
+		../../Qt/5.12.3/gcc_64/include/QtSql/qsqlrelationaltablemodel.h \
 		ui_mainwindow.h \
-		../../Qt/5.12.3/gcc_64/include/QtCore/QVariant \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/QApplication \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/qapplication.h \
-		../../Qt/5.12.3/gcc_64/include/QtCore/qcoreapplication.h \
-		../../Qt/5.12.3/gcc_64/include/QtCore/qeventloop.h \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		../../Qt/5.12.3/gcc_64/include/QtGui/qguiapplication.h \
-		../../Qt/5.12.3/gcc_64/include/QtGui/qinputmethod.h \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/QHBoxLayout \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/qboxlayout.h \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/qlayout.h \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/qlayoutitem.h \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/qgridlayout.h \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/QHeaderView \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/qheaderview.h \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/qabstractitemview.h \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/qframe.h \
-		../../Qt/5.12.3/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../Qt/5.12.3/gcc_64/include/QtCore/QDebug \
+		dialogcreate.h \
+		../../Qt/5.12.3/gcc_64/include/QtWidgets/QWidget \
+		../../Qt/5.12.3/gcc_64/include/QtSql/QSqlRelationalDelegate \
+		../../Qt/5.12.3/gcc_64/include/QtSql/qsqlrelationaldelegate.h \
+		../../Qt/5.12.3/gcc_64/include/QtWidgets/qitemdelegate.h \
 		../../Qt/5.12.3/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
 		../../Qt/5.12.3/gcc_64/include/QtWidgets/qstyleoption.h \
 		../../Qt/5.12.3/gcc_64/include/QtWidgets/qabstractspinbox.h \
@@ -1436,25 +1423,14 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		../../Qt/5.12.3/gcc_64/include/QtWidgets/qstyle.h \
 		../../Qt/5.12.3/gcc_64/include/QtWidgets/qtabbar.h \
 		../../Qt/5.12.3/gcc_64/include/QtWidgets/qrubberband.h \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/QMenuBar \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/qmenubar.h \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/qmenu.h \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/qaction.h \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/qactiongroup.h \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/QPushButton \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/qpushbutton.h \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/qabstractbutton.h \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/QSpacerItem \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/QStatusBar \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/qstatusbar.h \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/QTableView \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/qtableview.h \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/QToolBar \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/qtoolbar.h \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/QVBoxLayout \
-		../../Qt/5.12.3/gcc_64/include/QtWidgets/QWidget \
-		../../Qt/5.12.3/gcc_64/include/QtCore/QDebug \
-		dialogcreate.h
+		../../Qt/5.12.3/gcc_64/include/QtWidgets/qframe.h \
+		../../Qt/5.12.3/gcc_64/include/QtWidgets/qlistview.h \
+		../../Qt/5.12.3/gcc_64/include/QtWidgets/qabstractitemview.h \
+		../../Qt/5.12.3/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../Qt/5.12.3/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../Qt/5.12.3/gcc_64/include/QtWidgets/qcombobox.h \
+		../../Qt/5.12.3/gcc_64/include/QtSql/qsqldriver.h \
+		../../Qt/5.12.3/gcc_64/include/QtCore/qmetaobject.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 
 moc_dialogcreate.o: moc_dialogcreate.cpp 

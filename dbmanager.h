@@ -2,6 +2,7 @@
 #define DBMANAGER_H
 
 #include <QSqlTableModel>
+#include <QSqlRelationalTableModel>
 #include <QModelIndex>
 
 class Dbmanager

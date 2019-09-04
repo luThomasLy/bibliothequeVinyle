@@ -18,11 +18,10 @@ void Dbmanager::connect()
     if (!ok)
        {
           qDebug() << "Error: connection with database fail";
-       }
+       }   
        else
        {
           qDebug() << "Database: connection ok";
        }
-
 }
 

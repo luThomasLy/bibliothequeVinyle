@@ -3,6 +3,8 @@
 #include "QModelIndex"
 #include "QDebug"
 #include "dialogcreate.h"
+#include "QSqlRelationalTableModel"
+#include "QSqlRelationalDelegate"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -24,7 +26,6 @@ MainWindow::MainWindow(QWidget *parent) :
 //    model->setTable("vinyle");
 //    model->select();
 //    ui->tableView->setModel(model);
-
 
     connect(ui->buttonCreate, SIGNAL(clicked()), this, SLOT(creer()));
 
@@ -49,10 +50,20 @@ void MainWindow::afficher()
     Dbmanager *conn = new Dbmanager ();
     conn->connect();
 
-    QSqlTableModel *model = new QSqlTableModel();
-    model->setTable("vinyle");
-    model->select();
-    ui->tableView->setModel(model);
+    //2019/09/04 - permet d'afficher la table vinyle mais pas les relations
+//    QSqlTableModel *model = new QSqlTableModel();
+//    model->setTable("vinyle");
+//    model->select();
+//    ui->tableView->setModel(model);
+
+    //2019/09/04 - tentative de DAO
+    QSqlRelationalTableModel *modelVinyle = new QSqlRelationalTableModel();
+    modelVinyle->setTable("vinyle");
+    modelVinyle->select();
+
+    ui->tableView->setModel(modelVinyle);
+    ui->tableView->setItemDelegate(new QSqlRelationalDelegate ());
+    ui->tableView->resizeColumnsToContents();
 }
 
 void MainWindow::quitter()

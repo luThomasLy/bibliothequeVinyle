@@ -13,31 +13,31 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="buttonQuitCreate">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>260</y>
-     <width>80</width>
-     <height>25</height>
+     <x>120</x>
+     <y>250</y>
+     <width>168</width>
+     <height>27</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Quit</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="buttonSaveCreate">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>260</y>
-     <width>89</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Save</string>
-   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QPushButton" name="buttonSaveCreate">
+      <property name="text">
+       <string>Save</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="buttonQuitCreate">
+      <property name="text">
+       <string>Quit</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>
