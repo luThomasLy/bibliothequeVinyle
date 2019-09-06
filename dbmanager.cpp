@@ -3,7 +3,6 @@
 
 Dbmanager::Dbmanager()
 {
-
 }
 
 void Dbmanager::connect()

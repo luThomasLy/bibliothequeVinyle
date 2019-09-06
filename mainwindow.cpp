@@ -12,21 +12,6 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-//    /*le driver de QSQLITE*/
-//    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-
-//    /*donner le bon chemin de la database*/
-//    db.setDatabaseName("/home/ninko/Projets/sqlite_database/mabiblio.db");
-//    bool ok = db.open();
-
-//    Dbmanager *conn = new Dbmanager ();
-//    conn->connect();
-
-//    QSqlTableModel *model = new QSqlTableModel();
-//    model->setTable("vinyle");
-//    model->select();
-//    ui->tableView->setModel(model);
-
     connect(ui->buttonCreate, SIGNAL(clicked()), this, SLOT(creer()));
 
     connect(ui->buttonRead, SIGNAL(clicked()), this, SLOT(afficher()));
@@ -51,19 +36,21 @@ void MainWindow::afficher()
     conn->connect();
 
     //2019/09/04 - permet d'afficher la table vinyle mais pas les relations
-//    QSqlTableModel *model = new QSqlTableModel();
-//    model->setTable("vinyle");
-//    model->select();
-//    ui->tableView->setModel(model);
+    //2019/09/05 - ajout du resize de la colonne
+    QSqlTableModel *model = new QSqlTableModel();
+    model->setTable("vinyle");
+    model->select();
+    ui->tableView->setModel(model);
+    ui->tableView->resizeColumnsToContents();
 
     //2019/09/04 - tentative de DAO
-    QSqlRelationalTableModel *modelVinyle = new QSqlRelationalTableModel();
-    modelVinyle->setTable("vinyle");
-    modelVinyle->select();
+//    QSqlRelationalTableModel *modelVinyle = new QSqlRelationalTableModel();
+//    modelVinyle->setTable("vinyle");
+//    modelVinyle->select();
 
-    ui->tableView->setModel(modelVinyle);
-    ui->tableView->setItemDelegate(new QSqlRelationalDelegate ());
-    ui->tableView->resizeColumnsToContents();
+//    ui->tableView->setModel(modelVinyle);
+//    ui->tableView->setItemDelegate(new QSqlRelationalDelegate ());
+//    ui->tableView->resizeColumnsToContents();
 }
 
 void MainWindow::quitter()
