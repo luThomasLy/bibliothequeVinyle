@@ -2,6 +2,7 @@
 #define DIALOGCREATE_H
 
 #include <QWidget>
+#include <QSqlTableModel>
 
 namespace Ui {
 class Dialogcreate;
@@ -17,6 +18,7 @@ public:
 
 private:
     Ui::Dialogcreate *ui;
+    void creer();
 
 private slots:
     void quitcreate();

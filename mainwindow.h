@@ -21,12 +21,17 @@ public:
 private:
     Ui::MainWindow *ui;
 
+    //déclarer les instanciations en global pour pouvoir les utiliser en dehors
+    Dbmanager *conn = new Dbmanager ();
+    //QSqlTableModel *model = new QSqlTableModel();
+
 private slots :
-    void creer();
-    void afficher();
+    void clicCreer();
+    void clicLecture();
 //    void maj();
 //    void supprimer();
     void quitter();
+
 
 };
 

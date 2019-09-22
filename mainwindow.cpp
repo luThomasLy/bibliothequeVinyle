@@ -12,9 +12,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    connect(ui->buttonCreate, SIGNAL(clicked()), this, SLOT(creer()));
+    connect(ui->buttonCreate, SIGNAL(clicked()), this, SLOT(clicCreer()));
 
-    connect(ui->buttonRead, SIGNAL(clicked()), this, SLOT(afficher()));
+    connect(ui->buttonRead, SIGNAL(clicked()), this, SLOT(clicLecture()));
 
     connect(ui->buttonQuit, SIGNAL(clicked()), this, SLOT(quitter()));
 }
@@ -24,33 +24,24 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::creer()
+void MainWindow::clicCreer()
 {
     Dialogcreate *create = new Dialogcreate();
     create->show();
 }
 
-void MainWindow::afficher()
+void MainWindow::clicLecture()
 {
-    Dbmanager *conn = new Dbmanager ();
     conn->connect();
 
     //2019/09/04 - permet d'afficher la table vinyle mais pas les relations
     //2019/09/05 - ajout du resize de la colonne
     QSqlTableModel *model = new QSqlTableModel();
+
     model->setTable("vinyle");
     model->select();
-    ui->tableView->setModel(model);
-    ui->tableView->resizeColumnsToContents();
-
-    //2019/09/04 - tentative de DAO
-//    QSqlRelationalTableModel *modelVinyle = new QSqlRelationalTableModel();
-//    modelVinyle->setTable("vinyle");
-//    modelVinyle->select();
-
-//    ui->tableView->setModel(modelVinyle);
-//    ui->tableView->setItemDelegate(new QSqlRelationalDelegate ());
-//    ui->tableView->resizeColumnsToContents();
+    ui->tableViewMain->setModel(model);
+    ui->tableViewMain->resizeColumnsToContents();
 }
 
 void MainWindow::quitter()
