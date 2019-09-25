@@ -18,7 +18,6 @@ public:
 
 private:
     Ui::Dialogcreate *ui;
-    void creer();
 
 private slots:
     void quitcreate();

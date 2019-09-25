@@ -5,6 +5,8 @@
 #include "dialogcreate.h"
 #include "QSqlRelationalTableModel"
 #include "QSqlRelationalDelegate"
+#include "qsqlquery.h"
+#include "qsqlerror.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -13,9 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     connect(ui->buttonCreate, SIGNAL(clicked()), this, SLOT(clicCreer()));
-
     connect(ui->buttonRead, SIGNAL(clicked()), this, SLOT(clicLecture()));
-
     connect(ui->buttonQuit, SIGNAL(clicked()), this, SLOT(quitter()));
 }
 

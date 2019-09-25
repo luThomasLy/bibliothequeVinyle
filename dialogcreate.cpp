@@ -17,21 +17,6 @@ Dialogcreate::~Dialogcreate()
     delete ui;
 }
 
-enum{
-    idVinyle = 0,
-    titreAlbumMaxiVinyle = 1,
-    quantiteVinyle = 2,
-    categorieVinyle = 3,
-    genreVinyle = 4,
-    anneeVinyle = 5,
-};
-
-
-void Dialogcreate::creer()
-{
-
-}
-
 void Dialogcreate::quitcreate()
 {
     close();
