@@ -56,12 +56,12 @@ void MainWindow::clicCreer()
     model.setTable("Vinyle");
     for (int i = 0; i<6; ++i) {
         model.insertRows(i,1);
-        model.setData(model.index(i,0), i /*"Id " + QString::number(i)*/);
-        model.setData(model.index(i,1), "Titre ");
-        model.setData(model.index(i,2), "Quantite " + QString::number(i));
-        model.setData(model.index(i,3), "Categorie ");
-        model.setData(model.index(i,4), "Genre ");
-        model.setData(model.index(i,5), "Annee " + QString::number(i));
+        model.setData(model.index(i,0), i);
+        model.setData(model.index(i,1), i);
+        model.setData(model.index(i,2), i);
+        model.setData(model.index(i,3), i);
+        model.setData(model.index(i,4), i);
+        model.setData(model.index(i,5), i);
         model.submitAll();
     }
 
