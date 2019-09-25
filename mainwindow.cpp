@@ -28,30 +28,6 @@ void MainWindow::clicCreer()
 {
     clicLecture();
 
-//    QSqlQuery requeteur;
-//    requeteur.exec("INSERT INTO Vinyle(idVinyle, titreAlbumMaxiVinyle, quantiteVinyle, categorieVinyle, genreVinyle, anneeVinyle)"
-//                   "VALUES (1, 'nouveauVinyle')");
-
-//    while(requeteur.next()){
-//        int idVinyle = requeteur.value(0).toInt();
-//        QString titreAlbumMaxiVinyle = requeteur.value(1).toString();
-//        int quantiteVinyle = requeteur.value(2).toInt();
-//        QString categorieVinyle = requeteur.value(3).toString();
-//        QString genreVinyle = requeteur.value(4).toString();
-//        int anneeVinyle = requeteur.value(5).toInt();
-
-//        QMessageBox::information(
-//                    nullptr,
-//                    QObject::tr("information récupérée"),
-//                    "Id : " + QString::number(idVinyle) +
-//                    "\nTitre : " + titreAlbumMaxiVinyle +
-//                    "\nQuantite : " + QString::number(quantiteVinyle) +
-//                    "\nCategorie : " + categorieVinyle +
-//                    "\nGenre : " + genreVinyle +
-//                    "\nAnnee : " + QString::number(anneeVinyle)
-//                                 );
-//    }
-
     QSqlTableModel model;
     model.setTable("Vinyle");
     for (int i = 0; i<6; ++i) {
@@ -64,7 +40,6 @@ void MainWindow::clicCreer()
         model.setData(model.index(i,5), i);
         model.submitAll();
     }
-
 }
 
 void MainWindow::clicLecture()
