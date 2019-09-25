@@ -41,7 +41,7 @@ void MainWindow::clicCreer()
         int anneeVinyle = requeteur.value(5).toInt();
 
         QMessageBox::information(
-                    0,
+                    nullptr,
                     QObject::tr("information récupérée"),
                     "Id : " + QString::number(idVinyle) +
                     "\nTitre : " + titreAlbumMaxiVinyle +
