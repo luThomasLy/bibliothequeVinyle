@@ -28,28 +28,41 @@ void MainWindow::clicCreer()
 {
     clicLecture();
 
-    QSqlQuery requeteur;
-    requeteur.exec("INSERT INTO Vinyle(idVinyle, titreAlbumMaxiVinyle, quantiteVinyle, categorieVinyle, genreVinyle, anneeVinyle)"
-                   "VALUES (1, 'nouveauVinyle')");
+//    QSqlQuery requeteur;
+//    requeteur.exec("INSERT INTO Vinyle(idVinyle, titreAlbumMaxiVinyle, quantiteVinyle, categorieVinyle, genreVinyle, anneeVinyle)"
+//                   "VALUES (1, 'nouveauVinyle')");
 
-    while(requeteur.next()){
-        int idVinyle = requeteur.value(0).toInt();
-        QString titreAlbumMaxiVinyle = requeteur.value(1).toString();
-        int quantiteVinyle = requeteur.value(2).toInt();
-        QString categorieVinyle = requeteur.value(3).toString();
-        QString genreVinyle = requeteur.value(4).toString();
-        int anneeVinyle = requeteur.value(5).toInt();
+//    while(requeteur.next()){
+//        int idVinyle = requeteur.value(0).toInt();
+//        QString titreAlbumMaxiVinyle = requeteur.value(1).toString();
+//        int quantiteVinyle = requeteur.value(2).toInt();
+//        QString categorieVinyle = requeteur.value(3).toString();
+//        QString genreVinyle = requeteur.value(4).toString();
+//        int anneeVinyle = requeteur.value(5).toInt();
 
-        QMessageBox::information(
-                    nullptr,
-                    QObject::tr("information récupérée"),
-                    "Id : " + QString::number(idVinyle) +
-                    "\nTitre : " + titreAlbumMaxiVinyle +
-                    "\nQuantite : " + QString::number(quantiteVinyle) +
-                    "\nCategorie : " + categorieVinyle +
-                    "\nGenre : " + genreVinyle +
-                    "\nAnnee : " + QString::number(anneeVinyle)
-                                 );
+//        QMessageBox::information(
+//                    nullptr,
+//                    QObject::tr("information récupérée"),
+//                    "Id : " + QString::number(idVinyle) +
+//                    "\nTitre : " + titreAlbumMaxiVinyle +
+//                    "\nQuantite : " + QString::number(quantiteVinyle) +
+//                    "\nCategorie : " + categorieVinyle +
+//                    "\nGenre : " + genreVinyle +
+//                    "\nAnnee : " + QString::number(anneeVinyle)
+//                                 );
+//    }
+
+    QSqlTableModel model;
+    model.setTable("Vinyle");
+    for (int i = 0; i<6; ++i) {
+        model.insertRows(i,1);
+        model.setData(model.index(i,0), i /*"Id " + QString::number(i)*/);
+        model.setData(model.index(i,1), "Titre ");
+        model.setData(model.index(i,2), "Quantite " + QString::number(i));
+        model.setData(model.index(i,3), "Categorie ");
+        model.setData(model.index(i,4), "Genre ");
+        model.setData(model.index(i,5), "Annee " + QString::number(i));
+        model.submitAll();
     }
 
 }
