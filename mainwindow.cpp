@@ -2,11 +2,11 @@
 #include "ui_mainwindow.h"
 #include "QModelIndex"
 #include "QDebug"
-#include "dialogcreate.h"
 #include "QSqlRelationalTableModel"
 #include "QSqlRelationalDelegate"
 #include "qsqlquery.h"
 #include "qsqlerror.h"
+#include "QMessageBox"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -26,8 +26,32 @@ MainWindow::~MainWindow()
 
 void MainWindow::clicCreer()
 {
-    Dialogcreate *create = new Dialogcreate();
-    create->show();
+    clicLecture();
+
+    QSqlQuery requeteur;
+    requeteur.exec("INSERT INTO Vinyle(idVinyle, titreAlbumMaxiVinyle, quantiteVinyle, categorieVinyle, genreVinyle, anneeVinyle)"
+                   "VALUES (1, 'nouveauVinyle')");
+
+    while(requeteur.next()){
+        int idVinyle = requeteur.value(0).toInt();
+        QString titreAlbumMaxiVinyle = requeteur.value(1).toString();
+        int quantiteVinyle = requeteur.value(2).toInt();
+        QString categorieVinyle = requeteur.value(3).toString();
+        QString genreVinyle = requeteur.value(4).toString();
+        int anneeVinyle = requeteur.value(5).toInt();
+
+        QMessageBox::information(
+                    0,
+                    QObject::tr("information récupérée"),
+                    "Id : " + QString::number(idVinyle) +
+                    "\nTitre : " + titreAlbumMaxiVinyle +
+                    "\nQuantite : " + QString::number(quantiteVinyle) +
+                    "\nCategorie : " + categorieVinyle +
+                    "\nGenre : " + genreVinyle +
+                    "\nAnnee : " + QString::number(anneeVinyle)
+                                 );
+    }
+
 }
 
 void MainWindow::clicLecture()
