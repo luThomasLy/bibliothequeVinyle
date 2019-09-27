@@ -56,6 +56,11 @@ void MainWindow::clicLecture()
     ui->tableViewMain->resizeColumnsToContents();
 }
 
+void MainWindow::supprimer()
+{
+
+}
+
 void MainWindow::quitter()
 {
     close();
