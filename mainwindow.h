@@ -29,7 +29,7 @@ private slots :
     void clicCreer();
     void clicLecture();
 //    void maj();
-//    void supprimer();
+    void supprimer();
     void quitter();
 
 
