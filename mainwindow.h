@@ -25,12 +25,11 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    QString result_read;
     Dbmanager *conn = new Dbmanager ();
 
 private slots :
-//    void clicCreer();
-    void read();
+    void insertDb();
+    void readDb();
 //    void maj();
 //    void clicSupprimer();
     void quit();
