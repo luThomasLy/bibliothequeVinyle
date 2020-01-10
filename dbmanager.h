@@ -9,7 +9,9 @@ class Dbmanager
 {    
 public:
     Dbmanager();
-    void connect();
 
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    void connect();
+    void close();
 };
 #endif // DBMANAGER_H

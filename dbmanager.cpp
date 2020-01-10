@@ -15,12 +15,18 @@ void Dbmanager::connect()
     bool ok = db.open();
 
     if (!ok)
-       {
-          qDebug() << "Error: connection with database fail";
-       }   
-       else
-       {
-          qDebug() << "Database: connection ok";
-       }
+    {
+        qDebug() << "Error: connection with database fail";
+    }
+    else
+    {
+        qDebug() << "Database : connection is open";
+    }
+}
+
+void Dbmanager::close()
+{
+    db.close();
+    qDebug("Database : connection is close");
 }
 

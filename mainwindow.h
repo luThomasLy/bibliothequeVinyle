@@ -2,9 +2,15 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QSqlDatabase>
+#include <QSqlQuery>
 #include <QSqlTableModel>
 #include <QModelIndex>
 #include <dbmanager.h>
+#include "QDebug"
+#include "QSqlRelationalTableModel"
+#include "QSqlRelationalDelegate"
+#include "qsqlquery.h"
 
 namespace Ui {
 class MainWindow;
@@ -20,17 +26,15 @@ public:
 
 private:
     Ui::MainWindow *ui;
-
-    //déclarer les instanciations en global pour pouvoir les utiliser en dehors
+    QString result_read;
     Dbmanager *conn = new Dbmanager ();
-    //QSqlTableModel *model = new QSqlTableModel();
 
 private slots :
-    void clicCreer();
-    void clicLecture();
+//    void clicCreer();
+    void read();
 //    void maj();
-    void supprimer();
-    void quitter();
+//    void clicSupprimer();
+    void quit();
 
 
 };

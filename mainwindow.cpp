@@ -7,6 +7,7 @@
 #include "qsqlquery.h"
 #include "qsqlerror.h"
 #include "QMessageBox"
+#include "dbmanager.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -14,9 +15,11 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    connect(ui->buttonCreate, SIGNAL(clicked()), this, SLOT(clicCreer()));
-    connect(ui->buttonRead, SIGNAL(clicked()), this, SLOT(clicLecture()));
-    connect(ui->buttonQuit, SIGNAL(clicked()), this, SLOT(quitter()));
+//    connect(ui->buttonCreate, SIGNAL(clicked()), this, SLOT(clicCreer()));
+    connect(ui->buttonRead, SIGNAL(clicked()), this, SLOT(read()));
+//    connect(ui->buttonDelete, SIGNAL(clicked()), this, SLOT(clicSupprimer()));
+    connect(ui->buttonQuit, SIGNAL(clicked()), this, SLOT(quit()));
+    //connect(ui->buttonSearch, SIGNAL(clicked(), this, SLOT()));
 }
 
 MainWindow::~MainWindow()
@@ -24,44 +27,59 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::clicCreer()
-{
-    clicLecture();
+//void MainWindow::clicCreer()
+//{
+//    clicLecture();
 
-    QSqlTableModel model;
-    model.setTable("Vinyle");
-    for (int i = 0; i<6; ++i) {
-        model.insertRows(i,1);
-        model.setData(model.index(i,0), i);
-        model.setData(model.index(i,1), i);
-        model.setData(model.index(i,2), i);
-        model.setData(model.index(i,3), i);
-        model.setData(model.index(i,4), i);
-        model.setData(model.index(i,5), i);
-        model.submitAll();
-    }
-}
+//    QSqlTableModel model;
+//    model.setTable("Vinyle");
+//    for (int i = 0; i<6; ++i) {
+//        model.insertRows(i,1);
+//        model.setData(model.index(i,0), i);
+//        model.setData(model.index(i,1), i);
+//        model.setData(model.index(i,2), i);
+//        model.setData(model.index(i,3), i);
+//        model.setData(model.index(i,4), i);
+//        model.setData(model.index(i,5), i);
+//        model.submitAll();
+//    }
+//}
 
-void MainWindow::clicLecture()
+void MainWindow::read()
 {
     conn->connect();
 
-    //2019/09/04 - permet d'afficher la table vinyle mais pas les relations
-    //2019/09/05 - ajout du resize de la colonne
     QSqlTableModel *model = new QSqlTableModel();
-
     model->setTable("vinyle");
     model->select();
+
+//    QSqlQuery query;
+//    result_read = query.exec("SELECT * FROM vinyle");
+
     ui->tableViewMain->setModel(model);
     ui->tableViewMain->resizeColumnsToContents();
+
+    close();
 }
 
-void MainWindow::supprimer()
-{
+//void MainWindow::clicSupprimer()
+//{
+//    QSqlTableModel modelView;
+//    modelView.setTable("vinyle");
+//    modelView.select();
+//    for(int i = 0; i < modelView.rowCount(); ++i)
+//    {
+//        QSqlRecord record = modelView.record(i);
+//        information(
+//            0,
+//            tr("Information récupérée"),
+//            "Id : " + QString::number(record.value(0).toInt()) +
+//            "\nLibellé : " + record.value(1).toString()
+//            );
+//    }
+//}
 
-}
-
-void MainWindow::quitter()
+void MainWindow::quit()
 {
     close();
 }
