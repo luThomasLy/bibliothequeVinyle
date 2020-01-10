@@ -10,7 +10,6 @@
 #include "QDebug"
 #include "QSqlRelationalTableModel"
 #include "QSqlRelationalDelegate"
-#include "qsqlquery.h"
 
 namespace Ui {
 class MainWindow;
@@ -35,7 +34,6 @@ private slots :
 //    void maj();
 //    void clicSupprimer();
     void quit();
-
 
 };
 

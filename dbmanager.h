@@ -4,6 +4,11 @@
 #include <QSqlTableModel>
 #include <QSqlRelationalTableModel>
 #include <QModelIndex>
+#include "QDebug"
+#include <QSqlDatabase>
+#include <QSqlDriver>
+#include <QSqlError>
+#include <QSqlQuery>
 
 class Dbmanager
 {    
@@ -12,6 +17,6 @@ public:
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     void connect();
-    void close();
+    void close_connect();
 };
 #endif // DBMANAGER_H

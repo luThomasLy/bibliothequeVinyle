@@ -1,13 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "QModelIndex"
-#include "QDebug"
-#include "QSqlRelationalTableModel"
-#include "QSqlRelationalDelegate"
-#include "qsqlquery.h"
-#include "qsqlerror.h"
-#include "QMessageBox"
-#include "dbmanager.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -49,17 +41,21 @@ void MainWindow::read()
 {
     conn->connect();
 
-    QSqlTableModel *model = new QSqlTableModel();
-    model->setTable("vinyle");
-    model->select();
+//    QSqlTableModel *model = new QSqlTableModel();
+//    model->setTable("vinyle");
+//    model->select();
+//    ui->tableViewMain->setModel(model);
+//    ui->tableViewMain->resizeColumnsToContents();
 
-//    QSqlQuery query;
-//    result_read = query.exec("SELECT * FROM vinyle");
+    QSqlQuery query;
+    query.exec("SELECT * FROM vinyle");
 
-    ui->tableViewMain->setModel(model);
-    ui->tableViewMain->resizeColumnsToContents();
-
-    close();
+    while (query.next())
+    {
+        QString idVinyle = query.value(0).toString();
+        QString titreVinyle = query.value(1).toString();
+        qDebug() << idVinyle << titreVinyle;
+    }
 }
 
 //void MainWindow::clicSupprimer()
@@ -81,6 +77,7 @@ void MainWindow::read()
 
 void MainWindow::quit()
 {
+    conn->close_connect();
     close();
 }
 

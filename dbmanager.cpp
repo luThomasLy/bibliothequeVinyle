@@ -1,5 +1,4 @@
 #include "dbmanager.h"
-#include "QDebug"
 
 Dbmanager::Dbmanager()
 {
@@ -7,10 +6,7 @@ Dbmanager::Dbmanager()
 
 void Dbmanager::connect()
 {
-    /*le driver de QSQLITE*/
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-
-    /*donner le bon chemin de la database*/
     db.setDatabaseName("/home/ninko/Projets/sqlite_database/mabiblio.db");
     bool ok = db.open();
 
@@ -24,7 +20,7 @@ void Dbmanager::connect()
     }
 }
 
-void Dbmanager::close()
+void Dbmanager::close_connect()
 {
     db.close();
     qDebug("Database : connection is close");
