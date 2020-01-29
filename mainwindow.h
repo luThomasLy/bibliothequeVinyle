@@ -26,12 +26,13 @@ public:
 private:
     Ui::MainWindow *ui;
     Dbmanager *conn = new Dbmanager ();
+    QSqlTableModel *model = new QSqlTableModel();
 
 private slots :
     void insertDb();
     void readDb();
 //    void maj();
-//    void clicSupprimer();
+    void deleteDb();
     void quit();
 
 };

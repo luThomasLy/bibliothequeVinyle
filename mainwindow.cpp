@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->buttonCreate, SIGNAL(clicked()), this, SLOT(insertDb()));
     connect(ui->buttonRead, SIGNAL(clicked()), this, SLOT(readDb()));
-//    connect(ui->buttonDelete, SIGNAL(clicked()), this, SLOT(clicSupprimer()));
+    connect(ui->buttonDelete, SIGNAL(clicked()), this, SLOT(deleteDb()));
     connect(ui->buttonQuit, SIGNAL(clicked()), this, SLOT(quit()));
     //connect(ui->buttonSearch, SIGNAL(clicked(), this, SLOT()));
 }
@@ -61,28 +61,19 @@ void MainWindow::readDb()
 //    }
 }
 
-//void MainWindow::clicSupprimer()
-//{
-//    QSqlTableModel modelView;
-//    modelView.setTable("vinyle");
-//    modelView.select();
-//    for(int i = 0; i < modelView.rowCount(); ++i)
-//    {
-//        QSqlRecord record = modelView.record(i);
-//        information(
-//            0,
-//            tr("Information récupérée"),
-//            "Id : " + QString::number(record.value(0).toInt()) +
-//            "\nLibellé : " + record.value(1).toString()
-//            );
-//    }
-//}
+void MainWindow::deleteDb()
+{
+    model->select();
+    if(model->rowCount() > 0)
+    {
+        model->removeRows(0, model->rowCount());
+        model->submitAll();
+    }
+    //readDb();
+}
 
 void MainWindow::quit()
 {
     conn->close_connect();
     close();
 }
-
-
-
