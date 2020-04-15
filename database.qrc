@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>../../projet_biblio_vynile/bibliovynile</file>
+    </qresource>
+</RCC>

@@ -23,7 +23,7 @@ void MainWindow::insertDb()
 {
     readDb();
     QSqlTableModel model;
-    model.setTable("Vinyle");
+    model.setTable("Vynile");
     for (int i=0; i<6; ++i)
     {
         model.insertRows(i,1);
@@ -42,23 +42,10 @@ void MainWindow::readDb()
     conn->connect();
 
     QSqlTableModel *model = new QSqlTableModel();
-    model->setTable("vinyle");
+    model->setTable("Vynile");
     model->select();
     ui->tableViewMain->setModel(model);
     ui->tableViewMain->resizeColumnsToContents();
-
-//    QSqlQuery query;
-//    query.exec("SELECT * FROM vinyle");
-//    while (query.next())
-//    {
-//        int idVinyle = query.value(0).toInt();
-//        QString titreVinyle = query.value(1).toString();
-//        QString quantiteVinyle = query.value(2).toString();
-//        QString categorieVinyle = query.value(3).toString();
-//        QString genreVinyle = query.value(4).toString();
-//        int anneeVinyle = query.value(5).toInt();
-//        //qDebug() << idVinyle << titreVinyle << quantiteVinyle << categorieVinyle << genreVinyle << anneeVinyle;
-//    }
 }
 
 void MainWindow::deleteDb()

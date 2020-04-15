@@ -7,7 +7,8 @@ Dbmanager::Dbmanager()
 void Dbmanager::connect()
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("/home/ninko/Projets/sqlite_database/mabiblio.db");
+    db.setDatabaseName("/home/ninko/Documents/projet_bibliotheque_vynile/biblioVynile.db");
+    //db.setDatabaseName(":/db/biblioVynile.db");
     bool ok = db.open();
 
     if (!ok)
