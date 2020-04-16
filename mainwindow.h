@@ -5,11 +5,12 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlTableModel>
+#include <QSqlRelationalTableModel>
+#include <QSqlRelationalDelegate>
+#include <QSqlRelation>
 #include <QModelIndex>
+#include <QDebug>
 #include <dbmanager.h>
-#include "QDebug"
-#include "QSqlRelationalTableModel"
-#include "QSqlRelationalDelegate"
 
 namespace Ui {
 class MainWindow;
@@ -28,13 +29,13 @@ private:
     Dbmanager *conn = new Dbmanager ();
     QSqlTableModel *model = new QSqlTableModel();
 
-private slots :
-    void insertDb();
-    void readDb();
-//    void maj();
-    void deleteDb();
-    void quit();
 
+private slots :
+    void addVynile();
+    void readVynile();
+//    void maj();
+    void deleteVynile();
+    void quit();
 };
 
 #endif // MAINWINDOW_H
