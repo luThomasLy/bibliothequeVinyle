@@ -11,6 +11,13 @@
 #include <QModelIndex>
 #include <QDebug>
 #include <dbmanager.h>
+#include <QSqlRecord>
+#include <QMessageBox>
+#include <QSqlDriver>
+#include <QTableWidget>
+#include <QModelIndex>
+#include <QAbstractItemModel>
+#include <QtCore>
 
 namespace Ui {
 class MainWindow;
@@ -27,15 +34,18 @@ public:
 private:
     Ui::MainWindow *ui;
     Dbmanager *conn = new Dbmanager ();
-    QSqlTableModel *model = new QSqlTableModel();
-
+    //QSqlTableModel *model = new QSqlTableModel();
+    QSqlRelationalTableModel *model = new QSqlRelationalTableModel();
 
 private slots :
     void addVynile();
     void readVynile();
-//    void maj();
     void deleteVynile();
     void quit();
+
+//    void maj();    
+//    void searchVynile();
+
 };
 
 #endif // MAINWINDOW_H

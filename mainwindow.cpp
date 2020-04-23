@@ -7,11 +7,11 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    connect(ui->buttonCreate, SIGNAL(clicked()), this, SLOT(addVynile()));
     connect(ui->buttonRead, SIGNAL(clicked()), this, SLOT(readVynile()));
+    connect(ui->buttonCreate, SIGNAL(clicked()), this, SLOT(addVynile()));    
     connect(ui->buttonDelete, SIGNAL(clicked()), this, SLOT(deleteVynile()));
     connect(ui->buttonQuit, SIGNAL(clicked()), this, SLOT(quit()));
-    //connect(ui->buttonSearch, SIGNAL(clicked(), this, SLOT()));
+    //connect(ui->buttonSearch, SIGNAL(clicked()), this, SLOT());
 }
 
 MainWindow::~MainWindow()
@@ -23,15 +23,33 @@ void MainWindow::readVynile()
 {
     conn->connect();
 
-    QSqlTableModel *model = new QSqlTableModel();
+    QSqlRelationalTableModel *model = new QSqlRelationalTableModel();
+
     model->setTable("Vynile");
+    model->setRelation(0,QSqlRelation("Exemplaire","idVynile","qualiteExemplaire"));
+//    model->moveColumn();
+
     model->select();
+
+//    QSqlTableModel *model = new QSqlTableModel();
+//    model->setTable("Vynile");
+//    model->select();
+
+//    model->setHeaderData(0, Qt::Horizontal,tr("Identifiant"));
+//    model->setHeaderData(1, Qt::Horizontal,tr("Titre de l'album ou maxi"));
+//    model->setHeaderData(2, Qt::Horizontal,tr("Quantité"));
+//    model->setHeaderData(3, Qt::Horizontal,tr("Catégorie : EP / LP"));
+//    model->setHeaderData(4, Qt::Horizontal,tr("Genre musical"));
+//    model->setHeaderData(5, Qt::Horizontal,tr("Année de prod"));
+//    model->setHeaderData(6, Qt::Horizontal,tr("Etat du vynile"));
+
     ui->tableViewMain->setModel(model);
     ui->tableViewMain->resizeColumnsToContents();
 }
 
 void MainWindow::addVynile()
 {
+    //readVynile();
     conn->connect();
 
     QSqlTableModel *model = new QSqlTableModel();
@@ -55,15 +73,19 @@ void MainWindow::addVynile()
 
 void MainWindow::deleteVynile()
 {
-    QSqlTableModel modelView;
-    modelView.setTable("Vynile");
-    modelView.select();
+//    conn->connect();
 
-    if(modelView.rowCount() > 0)
-    {
-        modelView.removeRows(0, modelView.rowCount());
-        modelView.submitAll();
-    }
+//    QSqlTableModel *model = new QSqlTableModel();
+//    model->setTable("Vynile");
+//    model->select();
+//    ui->tableViewMain->setModel(model);
+//    ui->tableViewMain->resizeColumnsToContents();
+
+//    for (int i=0; i<6; ++i)
+//    {
+//        model->removeRow(0);
+//        model->submitAll();
+//    }
 }
 
 void MainWindow::quit()

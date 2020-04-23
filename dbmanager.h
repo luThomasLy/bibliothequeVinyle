@@ -3,6 +3,8 @@
 
 #include <QDebug>
 #include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QSqlTableModel>
 
 class Dbmanager
 {    
