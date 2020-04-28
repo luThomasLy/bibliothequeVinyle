@@ -24,24 +24,21 @@ void MainWindow::readVynile()
     conn->connect();
 
     QSqlRelationalTableModel *model = new QSqlRelationalTableModel();
-
     model->setTable("Vynile");
-    model->setRelation(0,QSqlRelation("Exemplaire","idVynile","qualiteExemplaire"));
-//    model->moveColumn();
-
+    model->setRelation(0,QSqlRelation("Exemplaire","idVynile","libelleExemplaire"));
     model->select();
 
 //    QSqlTableModel *model = new QSqlTableModel();
 //    model->setTable("Vynile");
 //    model->select();
 
-//    model->setHeaderData(0, Qt::Horizontal,tr("Identifiant"));
-//    model->setHeaderData(1, Qt::Horizontal,tr("Titre de l'album ou maxi"));
-//    model->setHeaderData(2, Qt::Horizontal,tr("Quantité"));
-//    model->setHeaderData(3, Qt::Horizontal,tr("Catégorie : EP / LP"));
-//    model->setHeaderData(4, Qt::Horizontal,tr("Genre musical"));
-//    model->setHeaderData(5, Qt::Horizontal,tr("Année de prod"));
-//    model->setHeaderData(6, Qt::Horizontal,tr("Etat du vynile"));
+    model->setHeaderData(0, Qt::Horizontal,tr("Qualité du vynile"));
+    model->setHeaderData(1, Qt::Horizontal,tr("Titre de l'album ou maxi"));
+    model->setHeaderData(2, Qt::Horizontal,tr("Quantité"));
+    model->setHeaderData(3, Qt::Horizontal,tr("Catégorie : EP / LP"));
+    model->setHeaderData(4, Qt::Horizontal,tr("Genre musical"));
+    model->setHeaderData(5, Qt::Horizontal,tr("Année de prod"));
+    model->setHeaderData(6, Qt::Horizontal,tr("Etat du vynile"));
 
     ui->tableViewMain->setModel(model);
     ui->tableViewMain->resizeColumnsToContents();
