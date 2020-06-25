@@ -7,10 +7,10 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    connect(ui->buttonRead, SIGNAL(clicked()), this, SLOT(readVynile()));
-    connect(ui->buttonCreate, SIGNAL(clicked()), this, SLOT(addVynile()));    
-    connect(ui->buttonDelete, SIGNAL(clicked()), this, SLOT(deleteVynile()));
-    connect(ui->buttonQuit, SIGNAL(clicked()), this, SLOT(quit()));
+    connect(ui->boutonLire, SIGNAL(clicked()), this, SLOT(lireVinyle()));
+    connect(ui->boutonCreer, SIGNAL(clicked()), this, SLOT(ajouterVinyle()));
+    connect(ui->boutonEffacer, SIGNAL(clicked()), this, SLOT(effacerVinyle()));
+    connect(ui->boutonQuitter, SIGNAL(clicked()), this, SLOT(quitter()));
     //connect(ui->buttonSearch, SIGNAL(clicked()), this, SLOT());
 }
 
@@ -19,38 +19,39 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::readVynile()
+void MainWindow::lireVinyle()
 {
     conn->connect();
 
     QSqlRelationalTableModel *model = new QSqlRelationalTableModel();
-    model->setTable("Vynile");
-    model->setRelation(0,QSqlRelation("Exemplaire","idVynile","libelleExemplaire"));
+    model->setTable("Vinyle");
+    //mise en relation avec les autres tables
+    model->setRelation(0,QSqlRelation("Exemplaire","idVinyle","qualiteExemplaire"));
+
     model->select();
 
 //    QSqlTableModel *model = new QSqlTableModel();
-//    model->setTable("Vynile");
+//    model->setTable("Vinyle");
 //    model->select();
 
-    model->setHeaderData(0, Qt::Horizontal,tr("Qualité du vynile"));
-    model->setHeaderData(1, Qt::Horizontal,tr("Titre de l'album ou maxi"));
-    model->setHeaderData(2, Qt::Horizontal,tr("Quantité"));
-    model->setHeaderData(3, Qt::Horizontal,tr("Catégorie : EP / LP"));
-    model->setHeaderData(4, Qt::Horizontal,tr("Genre musical"));
-    model->setHeaderData(5, Qt::Horizontal,tr("Année de prod"));
-    model->setHeaderData(6, Qt::Horizontal,tr("Etat du vynile"));
+//    model->setHeaderData(0, Qt::Horizontal,tr("Qualité du vinyle"));
+//    model->setHeaderData(1, Qt::Horizontal,tr("Titre de l'album ou maxi"));
+//    model->setHeaderData(2, Qt::Horizontal,tr("Quantité"));
+//    model->setHeaderData(3, Qt::Horizontal,tr("Catégorie : EP / LP"));
+//    model->setHeaderData(4, Qt::Horizontal,tr("Genre musical"));
+//    model->setHeaderData(5, Qt::Horizontal,tr("Année de prod"));
+//    model->setHeaderData(6, Qt::Horizontal,tr("Etat du vinyle"));
 
     ui->tableViewMain->setModel(model);
     ui->tableViewMain->resizeColumnsToContents();
 }
 
-void MainWindow::addVynile()
+void MainWindow::ajouterVinyle()
 {
-    //readVynile();
     conn->connect();
 
     QSqlTableModel *model = new QSqlTableModel();
-    model->setTable("Vynile");
+    model->setTable("Vinyle");
     model->select();
     ui->tableViewMain->setModel(model);
     ui->tableViewMain->resizeColumnsToContents();
@@ -68,15 +69,17 @@ void MainWindow::addVynile()
     }
 }
 
-void MainWindow::deleteVynile()
+void MainWindow::effacerVinyle()
 {
-//    conn->connect();
+    conn->connect();
 
-//    QSqlTableModel *model = new QSqlTableModel();
-//    model->setTable("Vynile");
-//    model->select();
-//    ui->tableViewMain->setModel(model);
-//    ui->tableViewMain->resizeColumnsToContents();
+    QSqlTableModel *model = new QSqlTableModel();
+    model->setTable("Vinyle");
+    model->select();
+    ui->tableViewMain->setModel(model);
+    ui->tableViewMain->resizeColumnsToContents();
+
+    model->removeRow(0);
 
 //    for (int i=0; i<6; ++i)
 //    {
@@ -85,7 +88,7 @@ void MainWindow::deleteVynile()
 //    }
 }
 
-void MainWindow::quit()
+void MainWindow::quitter()
 {
     conn->close_connect();
     close();

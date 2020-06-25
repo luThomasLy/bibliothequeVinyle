@@ -38,13 +38,13 @@ private:
     QSqlRelationalTableModel *model = new QSqlRelationalTableModel();
 
 private slots :
-    void addVynile();
-    void readVynile();
-    void deleteVynile();
-    void quit();
+    void ajouterVinyle();
+    void lireVinyle();
+    void effacerVinyle();
+    void quitter();
 
 //    void maj();    
-//    void searchVynile();
+//    void searchVinyle();
 
 };
 
