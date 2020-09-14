@@ -33,7 +33,10 @@ void Dbmanager::connect()
 
 void Dbmanager::close_connect()
 {
+    QString connection = db.connectionName();
     db.close();
+    db = QSqlDatabase();
+    db.removeDatabase(connection);
     qDebug("Database : connection is close");
 }
 
