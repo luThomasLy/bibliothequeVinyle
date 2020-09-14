@@ -1045,6 +1045,7 @@ moc_mainwindow.cpp: mainwindow.h \
 		../../../Qt/5.14.1/gcc_64/include/QtCore/qwineventnotifier.h \
 		../../../Qt/5.14.1/gcc_64/include/QtCore/qxmlstream.h \
 		../../../Qt/5.14.1/gcc_64/include/QtCore/qtcoreversion.h \
+		../../../Qt/5.14.1/gcc_64/include/QtCore/QItemSelection \
 		moc_predefs.h \
 		../../../Qt/5.14.1/gcc_64/bin/moc
 	/home/ninko/Qt/5.14.1/gcc_64/bin/moc $(DEFINES) --include /home/ninko/Documents/git/bibliothequeVinyle/moc_predefs.h -I/home/ninko/Qt/5.14.1/gcc_64/mkspecs/linux-g++ -I/home/ninko/Documents/git/bibliothequeVinyle -I/home/ninko/Qt/5.14.1/gcc_64/include -I/home/ninko/Qt/5.14.1/gcc_64/include/QtWidgets -I/home/ninko/Qt/5.14.1/gcc_64/include/QtGui -I/home/ninko/Qt/5.14.1/gcc_64/include/QtSql -I/home/ninko/Qt/5.14.1/gcc_64/include/QtCore -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include mainwindow.h -o moc_mainwindow.cpp
@@ -1423,6 +1424,7 @@ main.o: main.cpp mainwindow.h \
 		../../../Qt/5.14.1/gcc_64/include/QtCore/qwineventnotifier.h \
 		../../../Qt/5.14.1/gcc_64/include/QtCore/qxmlstream.h \
 		../../../Qt/5.14.1/gcc_64/include/QtCore/qtcoreversion.h \
+		../../../Qt/5.14.1/gcc_64/include/QtCore/QItemSelection \
 		../../../Qt/5.14.1/gcc_64/include/QtWidgets/QApplication \
 		../../../Qt/5.14.1/gcc_64/include/QtWidgets/qapplication.h \
 		../../../Qt/5.14.1/gcc_64/include/QtWidgets/qdesktopwidget.h \
@@ -1705,6 +1707,7 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		../../../Qt/5.14.1/gcc_64/include/QtCore/qwineventnotifier.h \
 		../../../Qt/5.14.1/gcc_64/include/QtCore/qxmlstream.h \
 		../../../Qt/5.14.1/gcc_64/include/QtCore/qtcoreversion.h \
+		../../../Qt/5.14.1/gcc_64/include/QtCore/QItemSelection \
 		ui_mainwindow.h \
 		../../../Qt/5.14.1/gcc_64/include/QtCore/QVariant \
 		../../../Qt/5.14.1/gcc_64/include/QtWidgets/QApplication \

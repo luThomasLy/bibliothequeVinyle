@@ -18,6 +18,7 @@
 #include <QModelIndex>
 #include <QAbstractItemModel>
 #include <QtCore>
+#include <QItemSelection>
 
 namespace Ui {
 class MainWindow;
@@ -41,6 +42,7 @@ private slots :
     void ajouterVinyle();
     void lireVinyle();
     void effacerVinyle();
+    void retourEffacer();
     void quitter();
 
 //    void maj();    
