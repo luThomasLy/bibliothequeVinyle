@@ -13,6 +13,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->buttonDelete, SIGNAL(clicked()), this, SLOT(deleteVinyle()));
     connect(ui->buttonQuit, SIGNAL(clicked()), this, SLOT(quit()));
     //connect(ui->buttonSearch, SIGNAL(clicked()), this, SLOT());
+
+    ui->tableViewMain->setModel(model); // Liaison entre le modèle et le tableau
 }
 
 MainWindow::~MainWindow()
@@ -23,21 +25,22 @@ MainWindow::~MainWindow()
 void MainWindow::readVinyle()
 {
     conn->connect();
-
     query.exec("SELECT * FROM Artiste");
     while (query.next())
     {
         QString nomArtiste = query.value(1).toString();
         QString categorieArtiste = query.value(2).toString();
         QString idPays = query.value(3).toString();
-        qWarning() << nomArtiste << categorieArtiste << idPays; //
+        qWarning() << nomArtiste << categorieArtiste << idPays;
     }
+    model->setTable("Artiste");
+    model->select();
 }
 
 void MainWindow::addVinyle()
 {
     conn->connect();
-    //les requêtes préaprées avec marqueur ?
+    //les requêtes préaprées avec marqueur named binding
     query.prepare("INSERT INTO Artiste (nomArtiste, categorieArtiste, idPays) VALUES (:nomArtiste,:categorieArtiste,:idPays)");
     query.bindValue(":nomArtiste", "IAM");
     query.bindValue(":categorieArtiste", "Rappeur");
@@ -53,24 +56,25 @@ void MainWindow::addVinyle()
     {
         qDebug("Ça marche pas !");
     }
-
+    model->setTable("Artiste");
+    model->select();
 }
 
 void MainWindow::deleteVinyle()
 {
-//    conn->connect();
+    conn->connect();
 
-//    QSqlTableModel *model = new QSqlTableModel();
-//    model->setTable("Vinyle");
-//    model->select();
-//    ui->tableViewMain->setModel(model);
-//    ui->tableViewMain->resizeColumnsToContents();
+    query.prepare("DELETE FROM Artiste WHERE nomArtiste = (:nomArtiste)");
+    query.bindValue(":nomArtiste", "IAM");
+    query.bindValue(":categorieArtiste", "Rappeur");
+    query.bindValue(":idPays", "FRANCE");
 
-//    for (int i=0; i<6; ++i)
-//    {
-//        model->removeRow(0);
-//        model->submitAll();
-//    }
+    if (!query.exec())
+    {
+        qWarning() << "error";
+    }
+    model->setTable("Artiste");
+    model->select();
 }
 
 void MainWindow::quit()
