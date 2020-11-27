@@ -32,58 +32,28 @@ void MainWindow::readVinyle()
         QString idPays = query.value(3).toString();
         qWarning() << nomArtiste << categorieArtiste << idPays; //
     }
-
-//    conn->connect();
-
-//    QSqlRelationalTableModel *model = new QSqlRelationalTableModel();
-
-//    model->setTable("Vynile");
-//    model->setRelation(0,QSqlRelation("Exemplaire","idVynile","qualiteExemplaire"));
-//    model->moveColumn();
-
-//    model->select();
-
-//    QSqlTableModel *model = new QSqlTableModel();
-//    model->setTable("Vynile");
-//    model->select();
-
-//    model->setHeaderData(0, Qt::Horizontal,tr("Identifiant"));
-//    model->setHeaderData(1, Qt::Horizontal,tr("Titre de l'album ou maxi"));
-//    model->setHeaderData(2, Qt::Horizontal,tr("Quantité"));
-//    model->setHeaderData(3, Qt::Horizontal,tr("Catégorie : EP / LP"));
-//    model->setHeaderData(4, Qt::Horizontal,tr("Genre musical"));
-//    model->setHeaderData(5, Qt::Horizontal,tr("Année de prod"));
-//    model->setHeaderData(6, Qt::Horizontal,tr("Etat du vynile"));
-
-//    ui->tableViewMain->setModel(model);
-//    ui->tableViewMain->resizeColumnsToContents();
 }
 
 void MainWindow::addVinyle()
 {
+    conn->connect();
+    //les requêtes préaprées avec marqueur ?
+    query.prepare("INSERT INTO Artiste (nomArtiste, categorieArtiste, idPays) VALUES (:nomArtiste,:categorieArtiste,:idPays)");
+    query.bindValue(":nomArtiste", "IAM");
+    query.bindValue(":categorieArtiste", "Rappeur");
+    query.bindValue(":idPays", "FRANCE");
 
+    query.exec();
 
+    if (query.execBatch())
+    {
+        qDebug("Ça marche !");
+    }
+    else
+    {
+        qDebug("Ça marche pas !");
+    }
 
-    //readVinyle();
-//    conn->connect();
-
-//    QSqlTableModel *model = new QSqlTableModel();
-//    model->setTable("Vinyle");
-//    model->select();
-//    ui->tableViewMain->setModel(model);
-//    ui->tableViewMain->resizeColumnsToContents();
-
-//    for (int i=0; i<6; ++i)
-//    {
-//        model->insertRows(i,1);
-//        model->setData(model->index(i,0), QString(i));
-//        model->setData(model->index(i,1), QString(i));
-//        model->setData(model->index(i,2), QString(i));
-//        model->setData(model->index(i,3), QString(i));
-//        model->setData(model->index(i,4), QString(i));
-//        model->setData(model->index(i,5), QString(i));
-//        model->submitAll();
-//    }
 }
 
 void MainWindow::deleteVinyle()
