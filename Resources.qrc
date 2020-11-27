@@ -1,5 +1,5 @@
 <RCC>
     <qresource prefix="/db">
-        <file>biblioVynile.db</file>
+        <file>biblioVinyle.db</file>
     </qresource>
 </RCC>

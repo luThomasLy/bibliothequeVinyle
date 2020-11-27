@@ -1,15 +1,16 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
-    connect(ui->buttonRead, SIGNAL(clicked()), this, SLOT(readVynile()));
-    connect(ui->buttonCreate, SIGNAL(clicked()), this, SLOT(addVynile()));    
-    connect(ui->buttonDelete, SIGNAL(clicked()), this, SLOT(deleteVynile()));
+    connect(ui->buttonRead, SIGNAL(clicked()), this, SLOT(readVinyle()));
+    connect(ui->buttonCreate, SIGNAL(clicked()), this, SLOT(addVinyle()));
+    connect(ui->buttonDelete, SIGNAL(clicked()), this, SLOT(deleteVinyle()));
     connect(ui->buttonQuit, SIGNAL(clicked()), this, SLOT(quit()));
     //connect(ui->buttonSearch, SIGNAL(clicked()), this, SLOT());
 }
@@ -19,17 +20,28 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::readVynile()
+void MainWindow::readVinyle()
 {
     conn->connect();
 
-    QSqlRelationalTableModel *model = new QSqlRelationalTableModel();
+    query.exec("SELECT * FROM Artiste");
+    while (query.next())
+    {
+        QString nomArtiste = query.value(1).toString();
+        QString categorieArtiste = query.value(2).toString();
+        QString idPays = query.value(3).toString();
+        qWarning() << nomArtiste << categorieArtiste << idPays; //
+    }
 
-    model->setTable("Vynile");
-    model->setRelation(0,QSqlRelation("Exemplaire","idVynile","qualiteExemplaire"));
+//    conn->connect();
+
+//    QSqlRelationalTableModel *model = new QSqlRelationalTableModel();
+
+//    model->setTable("Vynile");
+//    model->setRelation(0,QSqlRelation("Exemplaire","idVynile","qualiteExemplaire"));
 //    model->moveColumn();
 
-    model->select();
+//    model->select();
 
 //    QSqlTableModel *model = new QSqlTableModel();
 //    model->setTable("Vynile");
@@ -43,40 +55,43 @@ void MainWindow::readVynile()
 //    model->setHeaderData(5, Qt::Horizontal,tr("Année de prod"));
 //    model->setHeaderData(6, Qt::Horizontal,tr("Etat du vynile"));
 
-    ui->tableViewMain->setModel(model);
-    ui->tableViewMain->resizeColumnsToContents();
+//    ui->tableViewMain->setModel(model);
+//    ui->tableViewMain->resizeColumnsToContents();
 }
 
-void MainWindow::addVynile()
+void MainWindow::addVinyle()
 {
-    //readVynile();
-    conn->connect();
 
-    QSqlTableModel *model = new QSqlTableModel();
-    model->setTable("Vynile");
-    model->select();
-    ui->tableViewMain->setModel(model);
-    ui->tableViewMain->resizeColumnsToContents();
 
-    for (int i=0; i<6; ++i)
-    {
-        model->insertRows(i,1);
-        model->setData(model->index(i,0), QString(i));
-        model->setData(model->index(i,1), QString(i));
-        model->setData(model->index(i,2), QString(i));
-        model->setData(model->index(i,3), QString(i));
-        model->setData(model->index(i,4), QString(i));
-        model->setData(model->index(i,5), QString(i));
-        model->submitAll();
-    }
+
+    //readVinyle();
+//    conn->connect();
+
+//    QSqlTableModel *model = new QSqlTableModel();
+//    model->setTable("Vinyle");
+//    model->select();
+//    ui->tableViewMain->setModel(model);
+//    ui->tableViewMain->resizeColumnsToContents();
+
+//    for (int i=0; i<6; ++i)
+//    {
+//        model->insertRows(i,1);
+//        model->setData(model->index(i,0), QString(i));
+//        model->setData(model->index(i,1), QString(i));
+//        model->setData(model->index(i,2), QString(i));
+//        model->setData(model->index(i,3), QString(i));
+//        model->setData(model->index(i,4), QString(i));
+//        model->setData(model->index(i,5), QString(i));
+//        model->submitAll();
+//    }
 }
 
-void MainWindow::deleteVynile()
+void MainWindow::deleteVinyle()
 {
 //    conn->connect();
 
 //    QSqlTableModel *model = new QSqlTableModel();
-//    model->setTable("Vynile");
+//    model->setTable("Vinyle");
 //    model->select();
 //    ui->tableViewMain->setModel(model);
 //    ui->tableViewMain->resizeColumnsToContents();

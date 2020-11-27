@@ -22,7 +22,6 @@
 namespace Ui {
 class MainWindow;
 }
-
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -37,14 +36,17 @@ private:
     //QSqlTableModel *model = new QSqlTableModel();
     QSqlRelationalTableModel *model = new QSqlRelationalTableModel();
 
+    QSqlQuery query;
+    int numRows;
+
 private slots :
-    void addVynile();
-    void readVynile();
-    void deleteVynile();
+    void addVinyle();
+    void readVinyle();
+    void deleteVinyle();
     void quit();
 
 //    void maj();    
-//    void searchVynile();
+//    void searchVinyle();
 
 };
 
