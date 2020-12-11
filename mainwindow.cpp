@@ -25,15 +25,28 @@ MainWindow::~MainWindow()
 void MainWindow::readVinyle()
 {
     conn->connect();
-    query.exec("SELECT nomArtiste, categorieArtiste, idPays AS Artiste, nomChanson AS Chanson FROM Artiste INNER JOIN compose ON compose.idArtiste = Artiste.idArtiste "
-               "INNER JOIN chanson ON chanson.idChanson = compose.idChanson");
+    query.exec("SELECT titreAlbumMaxiVinyle, quantiteVinyle, categorieVinyle, genreVinyle, anneeVinyle, libelleExemplaire, qualiteExemplaire FROM Vinyle "
+               "INNER JOIN Exemplaire ON Exemplaire.idVinyle = Vinyle.idVinyle "
+
+               /*"SELECT nomArtiste, categorieArtiste, idPays AS Artiste, nomChanson AS Chanson FROM Artiste INNER JOIN compose ON compose.idArtiste = Artiste.idArtiste "
+               "INNER JOIN chanson ON chanson.idChanson = compose.idChanson"*/);
     while (query.next())
     {
-        QString nomArtiste = query.value(0).toString();
-        QString categorieArtiste = query.value(1).toString();
-        QString idPays = query.value(2).toString();
-        QString nomChanson = query.value(3).toString();
-        qWarning() << nomArtiste << categorieArtiste << idPays << nomChanson;
+        QString titreAlbumMaxiVinyle = query.value(0).toString();
+        QString quantiteVinyle = query.value(1).toString();
+        QString categorieVinyle = query.value(2).toString();
+        QString genreVinyle = query.value(3).toString();
+        int anneeVinyle = query.value(4).toInt();
+        QString libelleExemplaire = query.value(5).toString();
+        QString qualiteExemplaire = query.value(6).toString();
+
+        qWarning() << titreAlbumMaxiVinyle << quantiteVinyle << categorieVinyle << genreVinyle << anneeVinyle << libelleExemplaire << qualiteExemplaire;
+
+//        QString nomArtiste = query.value(0).toString();
+//        QString categorieArtiste = query.value(1).toString();
+//        QString idPays = query.value(2).toString();
+//        QString nomChanson = query.value(3).toString();
+//        qWarning() << nomArtiste << categorieArtiste << idPays << nomChanson;
     }
 //    model->setTable("Artiste");
 
